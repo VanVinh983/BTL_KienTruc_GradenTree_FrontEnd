@@ -31,54 +31,53 @@
             </div>
         </div>
     </div>
-<!--    <c:if test="${garden != null}">-->
-<!--        <h3 class="col-9 text-center name-garden">Tên vườn: ${garden.name}</h3>-->
-<!--        <h4 class="col-9 text-center">Địa chỉ: ${garden.address}</h4>-->
-<!--        <div class="col-12 text-center"  style="width: 100%">-->
-<!--            <img src="${garden.image}" style="border: #4CAF50 2px solid; border-radius: 20px; width: 50%;"/>-->
-<!--        </div>-->
-<!--    </c:if>-->
-<!--    <c:if test="${garden == null}">-->
-<!--        <h3 class="col-9 text-center name-garden">Tất cả cây</h3>-->
-<!--    </c:if>-->
-<!--</div>-->
+
+    <div th:if="${garden != null}">
+        <h3 class="col-9 text-center name-garden" th:utext="'Tên vườn: '+${garden.name}"></h3>
+        <h4 class="col-9 text-center" th:utext="'Địa chỉ: '+${garden.address}"></h4>
+        <div class="col-12 text-center"  style="width: 100%">
+            <img th:src="${garden.image}" style="border: #4CAF50 2px solid; border-radius: 20px; width: 50%;"/>
+        </div>
+    </div>
+    <div th:if="${garden == null}">
+        <h3 class="col-9 text-center name-garden">Tất cả cây</h3>
+    </div>
+</div>
 <hr/>
-<!--<div class="container">-->
-<!--    <c:forEach items="${trees}" var="tree" >-->
-<!--        <div class="card cardtree text-center" style="display: inline-block; margin: 10px;">-->
-<!--            <img class="card-body" src="${tree.image}" width="auto" height="200px">-->
-<!--            <div class="card-body cardtree-title">-->
-<!--                <hr/>-->
-<!--                <p class="card-text">${tree.name}</p>-->
-<!--            </div>-->
-<!--            <p class="card-text tree-type">Loại cây: ${tree.type}</p>-->
-<!--            <div class="card-text">-->
-<!--                <a href="/show-form-update-tree/${tree.id}" class="btn btn-primary text-center" style="width: 40%;">-->
-<!--                    Update-->
-<!--                </a>-->
-<!--                <c:if test="${garden == null}">-->
-<!--                    <a href="/deletetree/${tree.id}/null" class="btn btn-danger text-center" style="width: 40%;">-->
-<!--                        Delete-->
-<!--                    </a>-->
-<!--                </c:if>-->
-<!--                <c:if test="${garden != null}">-->
-<!--                    <a href="/deletetree/${tree.id}/${garden.id}" class="btn btn-danger text-center" style="width: 40%;">-->
-<!--                        Delete-->
-<!--                    </a>-->
-<!--                </c:if>-->
-
-<!--            </div>-->
-<!--        </div>-->
-<!--    </c:forEach>-->
-<!--    <a href="${pageContext.request.contextPath}/form-add-tree" class="card cardtree" style="display: inline-block; margin: 10px;">-->
-<!--        <img class="card-body" src="https://cdn.pixabay.com/photo/2014/04/02/10/55/plus-304947_640.png" width="100%" height="auto">-->
-<!--        <div class="card-body cardtree-title">-->
-<!--            <hr/>-->
-<!--            <p class="card-text"></p>-->
-<!--        </div>-->
-<!--        <p class="card-text tree-type"></p>-->
-<!--    </a>-->
-
+<div class="container">
+    <th:block th:each="tree:${trees}">
+        <div class="card cardtree text-center" style="display: inline-block; margin: 10px;">
+            <img class="card-body" th:src="${tree.image}" width="auto" height="200px">
+            <div class="card-body cardtree-title">
+                <hr/>
+                <p class="card-text" th:utext="${tree.name}"></p>
+            </div>
+            <p class="card-text tree-type" th:utext="'Loại cây: '+${tree.type}"></p>
+            <div class="card-text">
+                <a th:href="@{'/show-form-update-tree/'+${tree.id}}" class="btn btn-primary text-center" style="width: 40%;">
+                    Update
+                </a>
+                <span th:if="${garden == null}">
+                    <a th:href="@{'/deletetree/'+${tree.id}+'/null'}" class="btn btn-danger text-center" style="width: 40%;">
+                        Delete
+                    </a>
+                </span>
+                <span th:if="${garden != null}">
+                    <a th:href="@{'/deletetree/'+${tree.id}+'/'+${garden.id}}" class="btn btn-danger text-center" style="width: 40%;">
+                        Delete
+                    </a>
+                </span>
+            </div>
+        </div>
+    </th:block>
+    <a th:href="@{/form-add-tree}" class="card cardtree" style="display: inline-block; margin: 10px;">
+        <img class="card-body" src="https://cdn.pixabay.com/photo/2014/04/02/10/55/plus-304947_640.png" width="100%" height="auto">
+        <div class="card-body cardtree-title">
+            <hr/>
+            <p class="card-text"></p>
+        </div>
+        <p class="card-text tree-type"></p>
+    </a>
 </div>
 </body>
 </html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/tree.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+    <title>Quản lý cây trồng</title>
+</head>
+<body>
+<div class="header">
+    <a class="logo" href="#">
+        <img src="https://icon-library.com/images/garden-icon/garden-icon-1.jpg"/>
+        <span class="subProject">SubProject</span>
+        <span class="numberTeam">04</span>
+    </a>
+    <span class="menu">
+        <a th:href="@{/tree}" class="menuTree">Quản lý cây trồng</a>
+        <a th:href="@{/garden}" class="menuGarden">Quản lý vườn cây</a>
+    </span>
+</div>
+<div class="container">
+    <div class="row">
+        <h1 class="col-12 text-center" style="font-weight: bold">Sửa thông tin cây</h1>
+    </div>
+    <hr/>
+    <div class="col-12">
+        <form th:action="@{/updatetree}" method="post" th:object="${tree}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-3">Tên Cây: </label>
+                <h3 th:utext="${tree.id}"></h3>
+                <input type="hidden" th:field="*{id}" th:value="${tree.id}">
+                <input type="text" th:field="*{name}" th:value="${tree.name}" placeholder="Tên cây..." class="form-control"/>
+                <errors th:field="*{name}" cssStyle="color: red"/>
+            </div>
+            <div class="form-group">
+                <label class="col-3">Loại cây: </label>
+                <input type="text" th:value="${tree.type}" th:field="*{type}" placeholder="Loại cây..." class="form-control"/>
+                <errors th:field="*{type}" cssStyle="color: red"/>
+            </div>
+            <div class="form-group">
+                <label class="col-3">Hình ảnh: </label>
+                <input type="text" th:value="${tree.image}" th:field="*{image}" placeholder="link ảnh..." class="form-control"/>
+                <errors th:field="*{image}" cssStyle="color: red"/>
+            </div>
+            <div class="form-group">
+                <label class="col-3">Vườn: </label>
+                <select th:field="*{idGarden}" cssClass="form-control" th:value="${tree.idGarden}">
+                    <option value="">Chọn vườn...</option>
+                    <th:block th:each="garden:${gardens}">
+                        <option th:value="${garden.id}" th:utext="${garden.name}"></option>
+                    </th:block>
+                </select>
+                <errors th:field="*{idGarden}" cssStyle="color: red"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">+ Sửa thông tin</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
