@@ -1,0 +1,164 @@
+.header{
+    background-color: #e4fcdc;
+    height: 70px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.header .logo{
+    display: flex;
+    align-items: center;
+    float: left;
+    height: 100%;
+    text-decoration: none;
+}
+.header a img{
+    width: 40px;
+    height: 40px;
+}
+.subProject{
+    color: #1d452b;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+.numberTeam{
+    color: #49f511;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 2px;
+}
+.header .menu a{
+    float: right;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.menu .menuTree{
+    height: 30px;
+    margin-right: 5vw;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #49f511;
+}
+.menu .menuGarden{
+    margin-right: 10vw;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #1d452b;
+}
+.boxGarden{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-table;
+    border: solid 2px greenyellow;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 10px #2b542c;
+}
+.boxGarden img{
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+}
+.gardenName{
+    margin-top: 10px;
+    text-align: center;
+    color: #2b542c;
+    font-weight: bold;
+    font-size: 20px;
+}
+.gardenAddress{
+    margin-top: 5px;
+    text-align: center;
+}
+.quantityTree{
+    margin-top: 5px;
+    text-align: center;
+}
+.gardenAddress span{
+    color: #2b542c;
+    font-size: 18px;
+}
+.quantityTree span{
+    color: #2b542c;
+    font-size: 18px;
+}
+.buttonSeeGarden{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.buttonSeeGarden button{
+    border-radius: 10px;
+    border: solid 2px #2b542c;
+    padding: 5px 15px;
+    color: #2b542c;
+    font-size: 18px;
+    font-family: "Copperplate Gothic Bold";
+    font-weight: bold;
+}
+.buttonSeeGarden button:hover{
+    background-color: #2b542c;
+    color: #fff;
+}
+.buttonAddGarden{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-table;
+    border: solid 2px greenyellow;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 10px #2b542c;
+}
+.buttonAddGarden img{
+    width: 200px;
+    height: 200px;
+}
+.content .form-group{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.titleAddGarden{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.titleAddGarden span{
+    color: #2b542c;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.gardenImg{
+    margin-top: 10px;
+    text-align: center;
+}
+.gardenImg img{
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+}
+.viewTree{
+    margin: 20px 10px;
+    padding: 10px 10px;
+    border: solid 2px #2b542c;
+    border-radius: 10px;
+}
+.viewTree .boxTree{
+    display: inline-table;
+    text-align: center;
+}
+.viewTree .boxTree img{
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}

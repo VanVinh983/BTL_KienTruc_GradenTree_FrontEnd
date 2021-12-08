@@ -1,0 +1,76 @@
+.header{
+	background-color: #1d452b;
+	height: 70px;
+	width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.header a{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+.header a img{
+	width: 40px;
+	height: 40px;
+}
+.subProject{
+	color: #fff;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+}
+.numberTeam{
+	color: #8cfc03;
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: 2px;
+	font-family: 'Courier New', Courier, monospace;
+	margin-top: 2px;
+}
+.slide-image{
+	background-image: url("https://wallpaperaccess.com/full/803524.jpg");
+	width: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+.slide-image-opacity{
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.6;
+}
+.slide-content{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.slogan{
+	color: #fff;
+	font-size: 70px;
+	font-weight: bold;
+	font-family: 'Courier New', Courier, monospace;
+}
+.buttonLogin{
+	padding: 10px 50px;
+	font-size: 25px;
+	border: solid 2px #fff;
+	color: #0f0f0f;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	opacity: 0.5;
+	border-radius: 30px;
+	background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+	box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.buttonLogin:hover {
+	opacity: 1;
+}
+.buttonLogin:focus{
+	background-color: #2b542c;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+    <title>Trang chủ</title>
+</head>
+<body>
+<div class="header">
+    <a href="#">
+        <img src="https://icon-library.com/images/garden-icon/garden-icon-1.jpg"/>
+        <span class="subProject">SubProject</span>
+        <span class="numberTeam">04</span>
+    </a>
+</div>
+<div>
+    <div class="slide-image">
+        <div class="slide-image-opacity"></div>
+    </div>
+    <div class="slide-content">
+        <div class="slogan">Nông trại vui vẻ</div>
+        <div class="login ">
+            <a th:href="@{/tree}">
+                <button class="buttonLogin">Đăng nhập</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

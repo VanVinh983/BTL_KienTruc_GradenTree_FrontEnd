@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/tree.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+    <title>Quản lý cây trồng</title>
+</head>
+<body>
+<div class="header">
+    <a class="logo" href="#">
+        <img src="https://icon-library.com/images/garden-icon/garden-icon-1.jpg"/>
+        <span class="subProject">SubProject</span>
+        <span class="numberTeam">04</span>
+    </a>
+    <span class="menu">
+        <a th:href="@{/tree}" class="menuTree">Quản lý cây trồng</a>
+        <a th:href="@{/garden}" class="menuGarden">Quản lý vườn cây</a>
+    </span>
+</div>
+<div class="container">
+    <div class="col-2">
+        <div class="dropdown">
+            <button class="dropbtn">Chọn vườn</button>
+            <div class="dropdown-content">
+                <a th:href="@{/tree}">Tất cả</a>
+                <th:block th:each="garden:${gardens}">
+                    <a th:href="@{'/getByGardenId/'+${garden.id}}" th:utext="${garden.name}"></a>
+                </th:block>
+            </div>
+        </div>
+    </div>
+<!--    <c:if test="${garden != null}">-->
+<!--        <h3 class="col-9 text-center name-garden">Tên vườn: ${garden.name}</h3>-->
+<!--        <h4 class="col-9 text-center">Địa chỉ: ${garden.address}</h4>-->
+<!--        <div class="col-12 text-center"  style="width: 100%">-->
+<!--            <img src="${garden.image}" style="border: #4CAF50 2px solid; border-radius: 20px; width: 50%;"/>-->
+<!--        </div>-->
+<!--    </c:if>-->
+<!--    <c:if test="${garden == null}">-->
+<!--        <h3 class="col-9 text-center name-garden">Tất cả cây</h3>-->
+<!--    </c:if>-->
+<!--</div>-->
+<hr/>
+<!--<div class="container">-->
+<!--    <c:forEach items="${trees}" var="tree" >-->
+<!--        <div class="card cardtree text-center" style="display: inline-block; margin: 10px;">-->
+<!--            <img class="card-body" src="${tree.image}" width="auto" height="200px">-->
+<!--            <div class="card-body cardtree-title">-->
+<!--                <hr/>-->
+<!--                <p class="card-text">${tree.name}</p>-->
+<!--            </div>-->
+<!--            <p class="card-text tree-type">Loại cây: ${tree.type}</p>-->
+<!--            <div class="card-text">-->
+<!--                <a href="/show-form-update-tree/${tree.id}" class="btn btn-primary text-center" style="width: 40%;">-->
+<!--                    Update-->
+<!--                </a>-->
+<!--                <c:if test="${garden == null}">-->
+<!--                    <a href="/deletetree/${tree.id}/null" class="btn btn-danger text-center" style="width: 40%;">-->
+<!--                        Delete-->
+<!--                    </a>-->
+<!--                </c:if>-->
+<!--                <c:if test="${garden != null}">-->
+<!--                    <a href="/deletetree/${tree.id}/${garden.id}" class="btn btn-danger text-center" style="width: 40%;">-->
+<!--                        Delete-->
+<!--                    </a>-->
+<!--                </c:if>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </c:forEach>-->
+<!--    <a href="${pageContext.request.contextPath}/form-add-tree" class="card cardtree" style="display: inline-block; margin: 10px;">-->
+<!--        <img class="card-body" src="https://cdn.pixabay.com/photo/2014/04/02/10/55/plus-304947_640.png" width="100%" height="auto">-->
+<!--        <div class="card-body cardtree-title">-->
+<!--            <hr/>-->
+<!--            <p class="card-text"></p>-->
+<!--        </div>-->
+<!--        <p class="card-text tree-type"></p>-->
+<!--    </a>-->
+
+</div>
+</body>
+</html>
