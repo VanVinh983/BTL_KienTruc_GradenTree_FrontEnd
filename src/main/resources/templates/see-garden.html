@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/garden.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+    <title>Quản lý vườn cây</title>
+</head>
+<body>
+<div class="header">
+    <a class="logo" href="#">
+        <img src="https://icon-library.com/images/garden-icon/garden-icon-1.jpg"/>
+        <span class="subProject">SubProject</span>
+        <span class="numberTeam">04</span>
+    </a>
+    <span class="menu">
+        <a href="/tree" class="menuTree">Quản lý cây trồng</a>
+        <a href="/garden" class="menuGarden" >Quản lý vườn cây</a>
+    </span>
+</div>
+<div class="container">
+
+    <div class="gardenName"><span style="color: #000;font-weight: normal">Tên vườn: </span><span
+            class="gardenName" th:utext="${gardenUpdate.name}"></span></div>
+    <div class="gardenAddress">Địa chỉ: <span th:utext="${gardenUpdate.address}"></span></div>
+    <div class="quantityTree">Số lượng cây: <span th:utext="${treesWereNotGrown.size()}"></span></div>
+    <div class="gardenImg">
+        <img th:src="@{${gardenUpdate.image}}">
+    </div>
+    <div style="text-align: center;margin-top: 20px">
+        <a th:href="@{'/form-update-garden/'+${gardenUpdate.id}}">
+            <input class="btn btn-info" type="button" value="Cập nhật thông tin vườn cây">
+        </a>
+        <a onclick="return confirm('Bạn có muốn xoá vườn này không?')" th:href="@{'/delete-garden/'+${gardenUpdate.id}}" >
+            <input class="btn btn-danger" type="button" value="Xoá vườn cây">
+        </a>
+    </div>
+</div>
+<div class="viewTree">
+    <th:block th:each="tree:${treesWereNotGrown}">
+        <div class="boxTree">
+            <img th:src="@{${tree.image}}">
+            <div th:utext="${tree.name}" ></div>
+        </div>
+    </th:block>
+<!--    them url den form add tree-->
+    <div style="text-align: center">
+        <a th:href="@{/form-add-tree}"><input class="btn btn-success" value=" Thêm cây trồng"></a>
+    </div>
+</div>
+<div>
+
+</div>
+</body>
+</html>

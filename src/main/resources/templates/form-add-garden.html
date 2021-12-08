@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/garden.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+    <title>Thêm vườn cây</title>
+</head>
+<body>
+<div class="header">
+    <a class="logo" href="#">
+        <img src="https://icon-library.com/images/garden-icon/garden-icon-1.jpg"/>
+        <span class="subProject">SubProject</span>
+        <span class="numberTeam">04</span>
+    </a>
+    <span class="menu">
+        <a href="/tree" class="menuTree">Quản lý cây trồng</a>
+        <a href="/garden" class="menuGarden">Quản lý vườn cây</a>
+    </span>
+</div>
+
+<form th:action="@{/add-garden}" method="post" th:object="${garden}" enctype="multipart/form-data" >
+    <div class="container">
+        <div class="titleAddGarden">
+            <span>Thêm vườn cây</span>
+        </div>
+        <div class="content">
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Tên vườn</label>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                    <input type="text" th:field="*{name}" placeholder="Nhập tên vườn" class="form-control" />
+                    <span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" ></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Địa chỉ vườn</label>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                    <input type="text" th:field="*{address}" placeholder="Nhập địa chỉ vườn" class="form-control"/>
+                    <span style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}" ></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Hình ảnh vườn</label>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                    <input type="text" th:field="*{image}" placeholder="Nhập địa chỉ hình ảnh" class="form-control"/>
+                    <span style="color: red" th:if="${#fields.hasErrors('image')}" th:errors="*{image}" ></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></label>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                    <button class="btn btn-success" type="submit">
+                        <i class="glyphicon glyphicon-plus-sign"> </i> Thêm vườn
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+
+</div>
+</body>
+</html>

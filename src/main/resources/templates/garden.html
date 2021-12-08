@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/garden.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+    <title>Quản lý vườn cây</title>
+</head>
+<body>
+<div class="header">
+    <a class="logo" href="#">
+        <img src="https://icon-library.com/images/garden-icon/garden-icon-1.jpg"/>
+        <span class="subProject">SubProject</span>
+        <span class="numberTeam">04</span>
+    </a>
+    <span class="menu">
+        <a th:href="@{/tree}" class="menuTree">Quản lý cây trồng</a>
+        <a th:href="@{/garden}" class="menuGarden">Quản lý vườn cây</a>
+    </span>
+</div>
+<div class="container">
+    <th:block th:each="garden:${gardens}">
+        <th:block th:switch="${garden.name}">
+            <!--        <th:set var="name" scope="session" value="${garden.name}"/>-->
+            <th:block th:case="'add'" test="${name.equals('add')}">
+                <div class="buttonAddGarden">
+                    <a th:href="@{/form-add-garden}">
+                        <img src="https://endlessicons.com/wp-content/uploads/2012/12/add-icon-614x460.png">
+                    </a>
+                </div>
+            </th:block>
+            <th:block th:case="*" test="${!name.equals('add')}">
+                <div class="boxGarden">
+                    <img  th:src="@{${garden.image}}">
+                    <div class="gardenName" th:utext="${garden.name}"></div>
+                    <div class="gardenAddress">Địa chỉ: <span th:utext="${garden.address}"></span></div>
+                    <div><a style="text-decoration: none" th:href="@{'/see-garden/'+${garden.id}}" class="buttonSeeGarden">
+                        <button>Xem vườn</button>
+                    </a></div>
+                </div>
+            </th:block>
+        </th:block>
+    </th:block>
+</div>
+<div>
+
+</div>
+</body>
+</html>
